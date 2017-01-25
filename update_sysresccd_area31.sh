@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
 # Willy Romão 
 # willyr.goncalves at gmail.com
@@ -10,8 +10,22 @@ URLLOCAL="http://willyromao.com/area31/"
 DIRDEST="/usr/local/www/willyromao/area31/"
 WGET="/usr/local/bin/wget"
 
+_help()
+{
+  cat <<EOF
+Use: 
+  $0 <URL>
+  
+Example: 
+  $0 http://willyromao.com/area31/sysresccd-area31-v2.0.iso
+EOF
+}
+
 # Checks
-[[ -z ${URL} ]] && exit 1
+if [[ -z ${URL} ]]; then
+  _help
+  exit 1
+fi
 
 cd $DIRDEST
 
