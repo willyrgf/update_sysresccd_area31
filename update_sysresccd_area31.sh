@@ -8,7 +8,8 @@
 URL="$1"
 URLLOCAL="http://willyromao.com/area31/"
 DIRDEST="/usr/local/www/willyromao/area31/"
-WGET="/usr/local/bin/wget"
+WHICH="/usr/bin/which"
+WGET="`which wget`"
 
 _help()
 {
@@ -51,5 +52,6 @@ if [[ $? -eq 0 ]]; then
   echo "${URLLOCAL}/${fmd5}"
 else
   echo "Test URL local is failed."
+  exit 1
 fi
 
